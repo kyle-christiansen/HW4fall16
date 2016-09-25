@@ -2,14 +2,14 @@
 %html
   %head
     %title Rotten Potatoes!
-    = button_to 'New User', new_user_path
+    
     = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
+    = button_to 'New User', new_user_path
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   %body
     %h1.title Rotten Potatoes!
-    //= button_to 'Add to Cart', line_items_path(:product_id => product)
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
