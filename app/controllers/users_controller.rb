@@ -16,8 +16,8 @@ class UsersController < ApplicationController
    def create
     @user = User.new(user_params)
    
-    if(User.exists?(:user_id=>@user.user_id)
-     flash[:notice] ="Sorry, this user-id is taken. Try again."
+    if(User.exists?(:user_id=>@user.user_id))
+     flash[:notice] = "Sorry, this user-id is taken. Try again."
      
     else
      if @user.save
