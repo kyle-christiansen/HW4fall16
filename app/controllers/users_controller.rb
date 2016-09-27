@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+ 
    def user_params
     params.require(:user).permit(:user_id, :email)
-  end
+   end
    
    def index
    end
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
    def create
     @user = User.new(user_params)
    
-    if  true #User.exists?(:user_id => @user.user_id)
+    if User.exists?(:user_id => @user.user_id)
      flash[:notice] = "Sorry, this user-id is taken. Try again."
      
     else
