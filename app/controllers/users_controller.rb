@@ -11,7 +11,7 @@ class UsersController < ApplicationController
    end
    
    def new
-    #@user = User.new
+    @user = User.new
    end
    
    def create
@@ -19,11 +19,11 @@ class UsersController < ApplicationController
    
     if User.exists?(:user_id => @user.user_id)
      flash[:notice] = "Sorry, this user-id is taken. Try again."
-     
+      redirect_to new_user_path
     else
      if @user.save
       flash[:notice] = "#{@user.user_id} was successfully created."
-      redirect_to new_user_path
+      redirect_to movies_path
      end
     end 
    end
