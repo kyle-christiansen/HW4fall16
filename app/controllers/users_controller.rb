@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     else
      if User::create_user!(user_params)
       flash[:notice] = "Welcome #{@user.user_id} your account was successfully created."
-      redirect_to movies_path
+      redirect_to login_path
      end
     end 
    end
@@ -37,3 +37,6 @@ class UsersController < ApplicationController
    def delete
    end
 end
+#in the terminal type heroku pg:psql
+#\d
+#select * from (something);
