@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
  
    def user_params
-    params.require(:user).permit(:user_id, :email)
+    params.require(:user).permit(:user_id, :email, :session_token)
    end
    
    def index
@@ -18,11 +18,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
    
     if User.exists?(:user_id => @user.user_id)
-     flash[:notice] = "Sorry, this user-id is taken. Try again."
+     flash[:notice] = "Sorry, the user-id \"#{@user.user_id}\" is already taken. Try again."
       redirect_to new_user_path
     else
-     if @user.save
-      flash[:notice] = "#{@user.user_id} was successfully created."
+     if User::create_user!(user_params)
+      flash[:notice] = "Welcome #{@user.user_id} your account was successfully created."
       redirect_to movies_path
      end
     end 
