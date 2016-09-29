@@ -17,8 +17,8 @@
       
     #main
       - if flash[:notice]
-        #notice.message= flash[:notice] {:class => 'flash_message'}
+        #notice.message= flash[:notice]
       - elsif flash[:warning]
-        #warning.message= flash[:warning]  {:class => 'flash_message'}
+        #warning.message= flash[:warning]
 
       = yield
