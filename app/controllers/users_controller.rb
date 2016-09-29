@@ -37,6 +37,3 @@ class UsersController < ApplicationController
    def delete
    end
 end
-#in the terminal type heroku pg:psql
-#\d
-#select * from (something);
